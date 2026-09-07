@@ -3,7 +3,7 @@ status: ready_for_distribution
 distribution: learner_pack
 generation_scripts_distributed: false
 synthetic_data: true
-current_release: diagops-2026-S1-m4-v1
+current_release: diagops-2026-S1-m5-v1
 
 periods:
   - id: "2026-S1"
@@ -166,7 +166,9 @@ files:
     entity: "m4_reference_rag"
     module_min: "M5"
     required: true
-    delivery_status: planned
+    delivery_status: ready_for_distribution
+    quality_review: continuity_rag_release_checksums_and_calibration_replay_v1
+    release_id: diagops-m4-reference-r1
     scope: "Frozen M4 retrieval, model and agent baseline used for deployment and monitoring."
 
   - path: "2026-S1/reference_runs/m5_for_m6/"
@@ -202,12 +204,16 @@ files:
   - path: "2026-S2/sensors/sensor_readings.csv"
     entity: "sensors"
     module_min: "M5"
-    required: true
+    required: false
+    delivery_status: planned
+    scope: "Optional M5 capacity and drift extension; not required to open M5."
 
   - path: "2026-S2/events/events.csv"
     entity: "events"
     module_min: "M5"
-    required: true
+    required: false
+    delivery_status: planned
+    scope: "Optional M5 capacity and drift extension; not required to open M5."
 
   - path: "2027-S1/reports/reports.jsonl"
     entity: "reports"

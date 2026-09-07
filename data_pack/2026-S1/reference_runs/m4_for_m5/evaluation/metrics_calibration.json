@@ -1,0 +1,10 @@
+{
+  "answerable_questions": 10,
+  "calibration_questions": 12,
+  "citation_resolvable_rate": 1.0,
+  "correct_abstention_rate": 1.0,
+  "evaluation_version": "diagops-rag-calibration-2026-S1-r1",
+  "expected_document_hit_at_3": 1.0,
+  "test_split_used": false,
+  "unanswerable_questions": 2
+}

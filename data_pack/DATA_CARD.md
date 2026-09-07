@@ -156,6 +156,21 @@ et ses métriques sur la calibration. Cette baseline est volontairement limitée
 elle signale des violations de contrat et ne constitue pas une vérité de
 provenance.
 
+## Référence de continuité M4 vers M5
+
+La révision `diagops-2026-S1-m5-v1` ajoute le dossier
+`2026-S1/reference_runs/m4_for_m5/`, qui fournit la release pédagogique
+saine `diagops-m4-reference-r1` : baseline lexicale, agent à une décision,
+contrats de réponse, index reconstruisible, métriques de calibration, décision,
+risques et passage de relais réglementaire. Ses checksums permettent de relier
+les versions du corpus, de l'index, du prompt et de l'évaluation.
+
+Cette référence n'emploie jamais le split RAG `test` et ne contient aucun poids
+de modèle. Elle autorise une préproduction pédagogique et les exercices de
+rollback, pas un déploiement industriel. La période `2026-S2` reste une
+extension M5 facultative tant que son statut demeure `planned` dans le
+manifeste.
+
 ## Contrat de provenance
 
 À partir de M3, une table de mesures transmise d'un module à l'autre déclare

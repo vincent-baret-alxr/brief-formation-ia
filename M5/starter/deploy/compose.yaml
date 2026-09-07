@@ -1,0 +1,52 @@
+services:
+  indexer:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile
+    command:
+      - python
+      - pipelines/build_index.py
+      - --manifest
+      - /data_pack/2026-S1/knowledge/manifest.csv
+      - --documents
+      - /data_pack/2026-S1/knowledge/documents
+      - --output
+      - /artifacts/candidates/compose/index.json
+    volumes:
+      - ../../../data_pack:/data_pack:ro
+      - diagops_artifacts:/artifacts
+    restart: "no"
+
+  api:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile
+    environment:
+      DIAGOPS_REFERENCE_MANIFEST: /data_pack/2026-S1/reference_runs/m4_for_m5/release_manifest.json
+    ports:
+      - "8000:8000"
+    volumes:
+      - ../../../data_pack:/data_pack:ro
+      - diagops_artifacts:/workspace/module/artifacts
+    depends_on:
+      indexer:
+        condition: service_completed_successfully
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health/ready')"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+
+  prometheus:
+    image: prom/prometheus:v3.5.0
+    command: ["--config.file=/etc/prometheus/prometheus.yml"]
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
+    depends_on:
+      api:
+        condition: service_healthy
+
+volumes:
+  diagops_artifacts:

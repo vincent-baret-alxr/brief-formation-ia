@@ -1,0 +1,6 @@
+{
+  "minimum_document_count": 7,
+  "minimum_expected_document_hit_at_3": 0.8,
+  "minimum_citation_resolvable_rate": 1.0,
+  "minimum_correct_abstention_rate": 1.0
+}

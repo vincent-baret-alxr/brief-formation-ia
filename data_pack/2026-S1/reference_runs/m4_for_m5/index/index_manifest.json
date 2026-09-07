@@ -1,0 +1,78 @@
+{
+  "document_count": 7,
+  "documents": [
+    {
+      "allowed_roles": [
+        "auditeur",
+        "superviseur",
+        "technicien"
+      ],
+      "checksum_sha256": "56d59bf4ed3eb231d63795cc8632cdbd745430a589343800aa3c107c3ab3e4f6",
+      "document_id": "DOC-CHILL-TEMP-001",
+      "revision": "1"
+    },
+    {
+      "allowed_roles": [
+        "auditeur",
+        "superviseur",
+        "technicien"
+      ],
+      "checksum_sha256": "5eaa0dc4b70d655ed266921b475044dfb76b64d05145f9af0351efcc2593d6f2",
+      "document_id": "DOC-CONV-CURRENT-001",
+      "revision": "1"
+    },
+    {
+      "allowed_roles": [
+        "auditeur",
+        "superviseur"
+      ],
+      "checksum_sha256": "359fdb44b9999cf71e79e807d978a9c124ef60f2e3971de9edcb1ff2efb94f35",
+      "document_id": "DOC-DATA-ACCESS-001",
+      "revision": "1"
+    },
+    {
+      "allowed_roles": [
+        "auditeur",
+        "superviseur",
+        "technicien"
+      ],
+      "checksum_sha256": "8e7c03bc8f6ae62d4bbeba37813f1bca0bf79f9745e226df87d85913c2d4c518",
+      "document_id": "DOC-LOTO-002",
+      "revision": "2"
+    },
+    {
+      "allowed_roles": [
+        "auditeur",
+        "superviseur",
+        "technicien"
+      ],
+      "checksum_sha256": "0f57a0fa8a289becdd34354e69e289ac9ad0579945a90fc832bcd7766430b986",
+      "document_id": "DOC-PUMP-VIB-001",
+      "revision": "1"
+    },
+    {
+      "allowed_roles": [
+        "auditeur",
+        "public",
+        "superviseur",
+        "technicien"
+      ],
+      "checksum_sha256": "eca6e493526c006a8f1f3b7b74dd9a510cbd5cd242d57c2026b0d0f9b1e51a32",
+      "document_id": "DOC-RAG-OPS-001",
+      "revision": "1"
+    },
+    {
+      "allowed_roles": [
+        "auditeur",
+        "superviseur",
+        "technicien"
+      ],
+      "checksum_sha256": "a4a37c60e74dfc264bc76a476c8f86f38a836289f2e3c8c0c8450627892eb3f3",
+      "document_id": "DOC-STEAM-PRESS-001",
+      "revision": "1"
+    }
+  ],
+  "index_version": "lexical-dfb8faf0c9b4",
+  "manifest_sha256": "3b3dfb356eee6543bc8bbc1bf6ca55c39fce94714eef4146756be581e0fe3f5a",
+  "schema_version": 1
+}

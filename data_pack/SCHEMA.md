@@ -332,7 +332,8 @@ publiee.
 Les donnees sont organisees par periodes temporelles :
 
 - `2026-S1`
-- `2026-S2`
+- `2026-S2` — extension M5 facultative tant qu'elle n'est pas déclarée prête
+  dans `MANIFEST.yaml`
 - `2027-S1`
 
 Le sens analytique de chaque periode doit etre determine par le travail realise

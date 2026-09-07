@@ -14,7 +14,7 @@ et conservent leurs productions dans un dépôt privé indépendant (`origin`).
 | M2 | passé | présentiel 14 h, online 6 h, starter et référence de continuité |
 | M3 | ouvert | présentiel 14 h, online 6 h, starter, données capteurs et référence de continuité |
 | M4 | prêt à distribuer — 40 h | conception et évaluation : modèle simple, RAG minimal, agent borné et réplication |
-| M5 | prévu — 40 h | déploiement, CI d'évaluation, monitoring et exercice d'incident |
+| M5 | prêt à distribuer — 40 h | déploiement, CI d'évaluation, monitoring et exercice d'incident |
 | M6 | prévu — 40 h | amélioration continue, outils en lecture seule, feedback et campagne adversariale |
 | M7 | prévu — 40 h | revue d'architecture, sécurité, souveraineté, réversibilité et migration exercée |
 | M8 | prévu — 40 h | nouveau projet RAG-agentique, audit indépendant, correction et soutenance |
@@ -82,6 +82,25 @@ python -m pytest -q
 Le test capteur et les labels RAG de test ne sont restitués qu’après gel du
 candidat. Le lot du brief 2 est remis séparément après la première décision M4.
 
+## Démarrer M5
+
+M5 utilise la révision `diagops-2026-S1-m5-v1` du data pack et la référence
+saine `diagops-m4-reference-r1`. Les scénarios du game day restent dans
+l'espace formateur et sont injectés seulement après le gel du candidat.
+
+```bash
+python tools/check_m5_release.py
+python tools/init_module.py M5
+cd work/M5
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.lock
+python -m pytest -q
+```
+
+La période `2026-S2` est une extension facultative tant qu'elle n'est pas
+explicitement déclarée `ready_for_distribution` dans le manifeste.
+
 ## Règles de publication
 
 - dans le dépôt pédagogique, `upstream/main` contient uniquement le matériel
@@ -94,6 +113,7 @@ candidat. Le lot du brief 2 est remis séparément après la première décision
 ```bash
 python tools/check_publication.py
 python tools/check_m4_release.py --trainer
+python tools/check_m5_release.py --trainer
 ```
 
 Ce contrôle inspecte les fichiers suivis ou candidats au commit et bloque les

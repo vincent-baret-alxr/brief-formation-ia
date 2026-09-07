@@ -1,0 +1,29 @@
+{
+  "code_version": "m4-baseline-r1",
+  "components": {
+    "index_manifest": {
+      "path": "index/index_manifest.json",
+      "sha256": "d250e85b0c6c12ce6c1b60e9fa7cd63d1740e711eba22e76144fabcd886c7021"
+    },
+    "knowledge_manifest": {
+      "path": "../../knowledge/manifest.csv",
+      "sha256": "3b3dfb356eee6543bc8bbc1bf6ca55c39fce94714eef4146756be581e0fe3f5a"
+    },
+    "metrics": {
+      "path": "evaluation/metrics_calibration.json",
+      "sha256": "6f47a6b70539fc9e0cfabae442a7d3b2da23d00e6f6c435ea2a65fe6500ccc7b"
+    },
+    "prompt": {
+      "path": "prompts/grounded_answer.txt",
+      "sha256": "5f66e3c2e1d2061e73bcd70db77ae6444a01f6c75f36fd19121cb9bc054f2e1d"
+    }
+  },
+  "corpus_version": "knowledge-3b3dfb356eee",
+  "deployment_scope": "pedagogical_preproduction_only",
+  "evaluation_version": "diagops-rag-calibration-2026-S1-r1",
+  "index_version": "lexical-dfb8faf0c9b4",
+  "model_version": "diagops-grounded-reference-v1",
+  "prompt_version": "prompt-5f66e3c2e1d2",
+  "release_id": "diagops-m4-reference-r1",
+  "schema_version": 1
+}
