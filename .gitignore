@@ -16,9 +16,6 @@ env/
 # Conception et matériel formateur : jamais publiés
 _conception/
 
-# Anciens runs locaux conservés pour référence, mais non distribués
-M1/starter/work/
-
 # Artefacts lourds ou régénérables
 checkpoints/
 runs/
@@ -35,3 +32,8 @@ htmlcov/
 
 # Ne pas ignorer work/ : dans le dépôt privé de l'apprenant, ce dossier
 # contient précisément les productions à versionner.
+!M1/starter/work/
+!M1/starter/work/runs/
+!M1/starter/work/runs/**
+!M1/starter/work/evidence/
+!M1/starter/work/evidence/**

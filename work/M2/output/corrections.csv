@@ -1,0 +1,6 @@
+source_file,row_identifier,rule_id,column,before,after,reason
+equipment.csv,EQ-CAB-239,EQUIPMENT_TYPE_CATEGORY_NORMALIZED,equipment_type,Pump ,pump,Variante de casse/espace de 'pump' sans ambiguïté métier.
+events.csv,EVT-2026S1-0265,EVENT_TYPE_CATEGORY_NORMALIZED,event_type,Incident ,incident,Variante de casse/espace de 'incident' sans ambiguïté métier.
+maintenance.csv,MNT-2026S1-0912,INTERVENTION_TYPE_CATEGORY_NORMALIZED,intervention_type,Correctif,corrective,Variante de casse/espace de 'corrective' sans ambiguïté métier.
+maintenance.csv,MNT-2026S1-1121,PII_DETECTED_IN_NOTE,work_order_note,06 12 34 56 78,[donnée personnelle masquée],Adresse e-mail ou numéro de téléphone détecté dans un champ libre.
+maintenance.csv,MNT-2026S1-1334,PII_DETECTED_IN_NOTE,work_order_note,leo.martin@example.test,[donnée personnelle masquée],Adresse e-mail ou numéro de téléphone détecté dans un champ libre.

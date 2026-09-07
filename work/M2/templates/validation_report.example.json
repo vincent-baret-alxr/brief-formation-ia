@@ -1,0 +1,18 @@
+{
+  "status": "completed",
+  "sources": {
+    "equipment": {"rows": 420, "sha256": "..."},
+    "events": {"rows": 520, "sha256": "..."},
+    "maintenance": {"rows": 1800, "sha256": "..."}
+  },
+  "checks": [
+    {
+      "rule_id": "EQUIPMENT_ID_REQUIRED",
+      "source": "equipment.csv",
+      "passed": false,
+      "affected_rows": 1
+    }
+  ],
+  "summary": {"passed": 0, "failed": 1, "quarantined_rows": 1},
+  "decision": "utilisable sous conditions"
+}

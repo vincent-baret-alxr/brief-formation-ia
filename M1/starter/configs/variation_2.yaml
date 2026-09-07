@@ -18,14 +18,14 @@ training:
   max_length: 512
   per_device_batch_size: 4
   gradient_accumulation_steps: 4
-  epochs: 3
-  learning_rate: 0.0002
+  epochs: 5
+  learning_rate: 0.0001
   warmup_ratio: 0.1
   weight_decay: 0.01
   logging_steps: 5
   save_strategy: "epoch"
 
 experiment:
-  hypothesis: "A COMPLETER AVANT LE RUN"
-  changed_variable: "A COMPLETER"
-  expected_effect: "A COMPLETER"
+  hypothesis: "Variation 1 (5 epoques, lr 2e-4) sert de nouvelle base locale pour isoler le learning rate : si on le reduit a 1e-4 en gardant 5 epoques, alors l'apprentissage devrait etre plus stable, mais risque de ne pas converger autant en 5 epoques, ce qui pourrait faire baisser le score composite par rapport a Variation 1."
+  changed_variable: "training.learning_rate (0.0002 -> 0.0001), compare a Variation 1 a epochs=5 fixe"
+  expected_effect: "Variation du score composite par rapport a Variation 1 (a la hausse si la stabilite l'emporte, a la baisse si la convergence est ralentie)."

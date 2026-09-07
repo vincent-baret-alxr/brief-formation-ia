@@ -18,7 +18,7 @@ training:
   max_length: 512
   per_device_batch_size: 4
   gradient_accumulation_steps: 4
-  epochs: 3
+  epochs: 5
   learning_rate: 0.0002
   warmup_ratio: 0.1
   weight_decay: 0.01
@@ -26,6 +26,6 @@ training:
   save_strategy: "epoch"
 
 experiment:
-  hypothesis: "A COMPLETER AVANT LE RUN"
-  changed_variable: "A COMPLETER"
-  expected_effect: "A COMPLETER"
+  hypothesis: "Si le modele voit les donnees sur 5 epoques au lieu de 3, alors la conformite au schema et le macro-F1 de severity devraient s'ameliorer, parce que 3 epoques laissent probablement le modele sous-entraine sur un jeu de 320 exemples."
+  changed_variable: "training.epochs (3 -> 5)"
+  expected_effect: "Hausse du schema_valid_rate et du severity_macro_f1 par rapport a la reference, au prix d'un temps d'entrainement plus long."

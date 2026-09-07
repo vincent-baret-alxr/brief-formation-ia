@@ -1,0 +1,14 @@
+seed: 20260831
+target: provenance
+group_column: window_id
+positive_label: fabriquée
+candidates:
+  - logistic_regression
+  - random_forest
+metrics:
+  - precision
+  - recall
+  - f1
+  - roc_auc
+baseline_reference: ../../data_pack/2026-S1/reference_runs/m3_for_m4/
+test_policy: sealed_until_candidate_freeze

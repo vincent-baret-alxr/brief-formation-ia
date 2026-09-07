@@ -1,0 +1,33 @@
+{
+  "status": "completed",
+  "sources": {
+    "equipment": {"rows": 420, "sha256": "..."},
+    "events": {"rows": 520, "sha256": "..."},
+    "maintenance": {"rows": 1800, "sha256": "..."},
+    "sensors": {"rows": 50401, "sha256": "..."}
+  },
+  "series": {
+    "count": 0,
+    "equipment_with_measurements": 0,
+    "median_step_hours": 6.0,
+    "announced_step_hours": 6
+  },
+  "checks": [
+    {
+      "rule_id": "SEN-KEY-001",
+      "source": "sensor_readings.csv",
+      "passed": false,
+      "affected_rows": 10
+    }
+  ],
+  "rules": {"declared": 0, "active": 0, "inherited_without_status": 0},
+  "alignment": {
+    "window_before_hours": 48,
+    "window_after_hours": 24,
+    "matched_pairs": 0,
+    "events_without_measurement": 0,
+    "measurements_outside_any_window": 0
+  },
+  "summary": {"passed": 0, "failed": 1, "quarantined_rows": 0},
+  "decision": "utilisable sous conditions"
+}

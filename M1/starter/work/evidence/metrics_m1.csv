@@ -1,0 +1,5 @@
+system,changed_variable,epochs,learning_rate,examples,json_parseable_rate,schema_valid_rate,equipment_id_accuracy,severity_macro_f1,requires_human_review_accuracy,text_lexical_f1,latency_median_seconds,latency_p95_seconds,throughput_examples_per_second,composite_score
+baseline,,,,,,,,,,,,,,
+lora_reference,aucune (config commune),3,0.0002,80,1.0,0.9875,1.0,0.7489019468186134,0.9875,0.6577002791312002,5.438027875003172,6.263678832998266,0.18450322207499878,89.6933704324969
+variation_1,training.epochs (3 -> 5),5,0.0002,80,1.0,1.0,1.0,0.9546801346801347,0.9875,0.9430832535916918,5.471781917003682,6.3042615829908755,0.18209027331283262,98.08772313786378
+variation_2,training.learning_rate (0.0002 -> 0.0001) vs variation_1,5,0.0001,80,,,,,,,,,,95.14625383801922

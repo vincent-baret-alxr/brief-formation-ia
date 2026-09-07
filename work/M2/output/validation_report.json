@@ -1,0 +1,154 @@
+{
+  "status": "completed",
+  "message": "Pipeline M2 exécuté : corrections, quarantaine et validation Pandera appliquées.",
+  "sources": {
+    "equipment": {
+      "rows": 420,
+      "sha256": "d8c51e4cb152107fa5c7a27ae00f96afb19d83f8d92a9c220d0d1f4528c885a0"
+    },
+    "events": {
+      "rows": 520,
+      "sha256": "4a7d3b5178562a5666e20baad4fe2103f72532296edaf7b26109c2a6edd6872a"
+    },
+    "maintenance": {
+      "rows": 1800,
+      "sha256": "635d354bb8ce13b617c5289920ab5a2237191b220b667b0c339a47ce12f247c1"
+    }
+  },
+  "checks": [
+    {
+      "rule_id": "EQUIPMENT_TYPE_CATEGORY_NORMALIZED",
+      "source": "equipment.csv",
+      "passed": false,
+      "affected_rows": 1
+    },
+    {
+      "rule_id": "DUPLICATE_ROW",
+      "source": "equipment.csv",
+      "passed": false,
+      "affected_rows": 4
+    },
+    {
+      "rule_id": "EVENT_TYPE_CATEGORY_NORMALIZED",
+      "source": "events.csv",
+      "passed": false,
+      "affected_rows": 1
+    },
+    {
+      "rule_id": "DUPLICATE_ROW",
+      "source": "events.csv",
+      "passed": false,
+      "affected_rows": 4
+    },
+    {
+      "rule_id": "INTERVENTION_TYPE_CATEGORY_NORMALIZED",
+      "source": "maintenance.csv",
+      "passed": false,
+      "affected_rows": 1
+    },
+    {
+      "rule_id": "PII_DETECTED_IN_NOTE",
+      "source": "maintenance.csv",
+      "passed": false,
+      "affected_rows": 2
+    },
+    {
+      "rule_id": "DUPLICATE_ROW",
+      "source": "maintenance.csv",
+      "passed": false,
+      "affected_rows": 5
+    },
+    {
+      "rule_id": "UNKNOWN_EQUIPMENT_ID",
+      "source": "events.csv",
+      "passed": false,
+      "affected_rows": 1
+    },
+    {
+      "rule_id": "UNKNOWN_EQUIPMENT_ID",
+      "source": "maintenance.csv",
+      "passed": false,
+      "affected_rows": 1
+    },
+    {
+      "rule_id": "UNKNOWN_EVENT_ID",
+      "source": "maintenance.csv",
+      "passed": false,
+      "affected_rows": 1
+    },
+    {
+      "rule_id": "COMMISSIONING_DATE_COMMISSIONING_DATE_NE_PEUT_PAS_TRE_DANS_LE_FUTUR",
+      "source": "equipment.csv",
+      "passed": false,
+      "affected_rows": 1
+    },
+    {
+      "rule_id": "RATED_POWER_KW_RATED_POWER_KW_DOIT_TRE_POSITIF",
+      "source": "equipment.csv",
+      "passed": false,
+      "affected_rows": 1
+    },
+    {
+      "rule_id": "SEVERITY_ISIN_CRITICAL_HIGH_LOW_MEDIUM",
+      "source": "events.csv",
+      "passed": false,
+      "affected_rows": 1
+    },
+    {
+      "rule_id": "LIGNE_END_AT_DOIT_TRE_POST_RIEUR_OU_GAL_START_AT",
+      "source": "events.csv",
+      "passed": false,
+      "affected_rows": 1
+    },
+    {
+      "rule_id": "DOWNTIME_MINUTES_DOWNTIME_MINUTES_NE_PEUT_PAS_TRE_N_GATIF",
+      "source": "maintenance.csv",
+      "passed": false,
+      "affected_rows": 1
+    },
+    {
+      "rule_id": "DOWNTIME_MINUTES_DOWNTIME_MINUTES_D_PASSE_LE_SEUIL_PLAUSIBLE_14_JOURS",
+      "source": "maintenance.csv",
+      "passed": false,
+      "affected_rows": 1
+    },
+    {
+      "rule_id": "PARTS_COST_EUR_GREATER_THAN_OR_EQUAL_TO_0",
+      "source": "maintenance.csv",
+      "passed": false,
+      "affected_rows": 1
+    },
+    {
+      "rule_id": "LIGNE_CLOSED_AT_DOIT_TRE_POST_RIEUR_OU_GAL_OPENED_AT",
+      "source": "maintenance.csv",
+      "passed": false,
+      "affected_rows": 1
+    },
+    {
+      "rule_id": "PROCESSED_TABLE_SCHEMA_VALID",
+      "source": "equipment.csv",
+      "passed": true,
+      "affected_rows": 0
+    },
+    {
+      "rule_id": "PROCESSED_TABLE_SCHEMA_VALID",
+      "source": "events.csv",
+      "passed": true,
+      "affected_rows": 0
+    },
+    {
+      "rule_id": "PROCESSED_TABLE_SCHEMA_VALID",
+      "source": "maintenance.csv",
+      "passed": true,
+      "affected_rows": 0
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 18,
+    "quarantined_rows": 24,
+    "corrected_values": 5,
+    "total_raw_rows": 2740
+  },
+  "decision": "utilisable sous conditions"
+}

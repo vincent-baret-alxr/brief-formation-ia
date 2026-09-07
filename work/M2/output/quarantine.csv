@@ -1,0 +1,25 @@
+source_file,row_identifier,rule_id,column,observed_value,reason,decision
+equipment.csv,EQ-CHILL-128,DUPLICATE_ROW,equipment_id,EQ-CHILL-128,Ligne strictement identique à une ligne déjà retenue.,exclu_doublon
+equipment.csv,EQ-CONV-222,DUPLICATE_ROW,equipment_id,EQ-CONV-222,Ligne strictement identique à une ligne déjà retenue.,exclu_doublon
+equipment.csv,EQ-OVEN-366,DUPLICATE_ROW,equipment_id,EQ-OVEN-366,Ligne strictement identique à une ligne déjà retenue.,exclu_doublon
+equipment.csv,EQ-ROBOT-390,DUPLICATE_ROW,equipment_id,EQ-ROBOT-390,Ligne strictement identique à une ligne déjà retenue.,exclu_doublon
+equipment.csv,EQ-CONV-137,COMMISSIONING_DATE_COMMISSIONING_DATE_NE_PEUT_PAS_TRE_DANS_LE_FUTUR,commissioning_date,2031-04-17 00:00:00,Contrainte de schéma non respectée : commissioning_date ne peut pas être dans le futur,a_examiner
+equipment.csv,EQ-COMP-169,RATED_POWER_KW_RATED_POWER_KW_DOIT_TRE_POSITIF,rated_power_kw,-12.5,Contrainte de schéma non respectée : rated_power_kw doit être positif,a_examiner
+events.csv,EVT-2026S1-0022,DUPLICATE_ROW,event_id,EVT-2026S1-0022,Ligne strictement identique à une ligne déjà retenue.,exclu_doublon
+events.csv,EVT-2026S1-0155,DUPLICATE_ROW,event_id,EVT-2026S1-0155,Ligne strictement identique à une ligne déjà retenue.,exclu_doublon
+events.csv,EVT-2026S1-0314,DUPLICATE_ROW,event_id,EVT-2026S1-0314,Ligne strictement identique à une ligne déjà retenue.,exclu_doublon
+events.csv,EVT-2026S1-0432,DUPLICATE_ROW,event_id,EVT-2026S1-0432,Ligne strictement identique à une ligne déjà retenue.,exclu_doublon
+events.csv,EVT-2026S1-0180,UNKNOWN_EQUIPMENT_ID,equipment_id,EQ-ORPHAN-999,equipment_id absent de equipment.csv.,exclu_reference_rompue
+events.csv,EVT-2026S1-0102,SEVERITY_ISIN_CRITICAL_HIGH_LOW_MEDIUM,severity,URGENT,"Contrainte de schéma non respectée : isin(['critical', 'high', 'low', 'medium'])",a_examiner
+events.csv,EVT-2026S1-0032,LIGNE_END_AT_DOIT_TRE_POST_RIEUR_OU_GAL_START_AT,__ligne__,EVT-2026S1-0032,Contrainte de schéma non respectée : end_at doit être postérieur ou égal à start_at,a_examiner
+maintenance.csv,MNT-2026S1-0061,DUPLICATE_ROW,maintenance_id,MNT-2026S1-0061,Ligne strictement identique à une ligne déjà retenue.,exclu_doublon
+maintenance.csv,MNT-2026S1-0334,DUPLICATE_ROW,maintenance_id,MNT-2026S1-0334,Ligne strictement identique à une ligne déjà retenue.,exclu_doublon
+maintenance.csv,MNT-2026S1-0778,DUPLICATE_ROW,maintenance_id,MNT-2026S1-0778,Ligne strictement identique à une ligne déjà retenue.,exclu_doublon
+maintenance.csv,MNT-2026S1-1201,DUPLICATE_ROW,maintenance_id,MNT-2026S1-1201,Ligne strictement identique à une ligne déjà retenue.,exclu_doublon
+maintenance.csv,MNT-2026S1-1601,DUPLICATE_ROW,maintenance_id,MNT-2026S1-1601,Ligne strictement identique à une ligne déjà retenue.,exclu_doublon
+maintenance.csv,MNT-2026S1-0545,UNKNOWN_EQUIPMENT_ID,equipment_id,EQ-ORPHAN-998,equipment_id absent de equipment.csv.,exclu_reference_rompue
+maintenance.csv,MNT-2026S1-0389,UNKNOWN_EVENT_ID,event_id,EVT-ORPHAN-999,event_id absent de events.csv.,exclu_reference_rompue
+maintenance.csv,MNT-2026S1-0041,DOWNTIME_MINUTES_DOWNTIME_MINUTES_NE_PEUT_PAS_TRE_N_GATIF,downtime_minutes,-45,Contrainte de schéma non respectée : downtime_minutes ne peut pas être négatif,a_examiner
+maintenance.csv,MNT-2026S1-0206,DOWNTIME_MINUTES_DOWNTIME_MINUTES_D_PASSE_LE_SEUIL_PLAUSIBLE_14_JOURS,downtime_minutes,99999,Contrainte de schéma non respectée : downtime_minutes dépasse le seuil plausible (14 jours),a_examiner
+maintenance.csv,MNT-2026S1-0703,PARTS_COST_EUR_GREATER_THAN_OR_EQUAL_TO_0,parts_cost_eur,-350.0,Contrainte de schéma non respectée : greater_than_or_equal_to(0),a_examiner
+maintenance.csv,MNT-2026S1-0621,LIGNE_CLOSED_AT_DOIT_TRE_POST_RIEUR_OU_GAL_OPENED_AT,__ligne__,MNT-2026S1-0621,Contrainte de schéma non respectée : closed_at doit être postérieur ou égal à opened_at,a_examiner
