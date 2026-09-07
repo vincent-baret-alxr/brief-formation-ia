@@ -52,6 +52,8 @@ def ready() -> dict[str, str]:
         time.sleep(delay_ms / 1000)
     if fault.get("dependency_available") is False or fault.get("index_valid") is False:
         raise HTTPException(status_code=503, detail="Incident de laboratoire actif")
+    if fault.get("release_valid") is False:
+        raise HTTPException(status_code=503, detail="Configuration de release incompatible")
     try:
         release = current_release()
     except (OSError, ValueError) as exc:
@@ -69,14 +71,19 @@ def version() -> dict:
 
 @app.get("/metrics")
 def metrics() -> Response:
+    fault = active_fault()
     try:
         current_release()
         ready_value = 1
     except (OSError, ValueError):
         ready_value = 0
-    fault = active_fault()
+    if fault.get("release_valid") is False:
+        ready_value = 0
     dependency_up = int(fault.get("dependency_available", True))
     index_valid = int(fault.get("index_valid", True))
+    citation_resolvable_rate = float(fault.get("citation_resolvable_rate", 1.0))
+    correct_abstention_rate = float(fault.get("correct_abstention_rate", 1.0))
+    expected_document_hit_at_3 = float(fault.get("expected_document_hit_at_3", 1.0))
     body = (
         "# HELP diagops_ready Whether the reference release is valid.\n"
         "# TYPE diagops_ready gauge\n"
@@ -87,5 +94,14 @@ def metrics() -> Response:
         "# HELP diagops_index_valid Whether the active index passed integrity checks.\n"
         "# TYPE diagops_index_valid gauge\n"
         f"diagops_index_valid {index_valid}\n"
+        "# HELP diagops_citation_resolvable_rate Share of answer citations resolving to an indexed document.\n"
+        "# TYPE diagops_citation_resolvable_rate gauge\n"
+        f"diagops_citation_resolvable_rate {citation_resolvable_rate}\n"
+        "# HELP diagops_correct_abstention_rate Share of unsupported questions correctly refused.\n"
+        "# TYPE diagops_correct_abstention_rate gauge\n"
+        f"diagops_correct_abstention_rate {correct_abstention_rate}\n"
+        "# HELP diagops_expected_document_hit_at_3 Share of questions whose expected document ranks in the top 3.\n"
+        "# TYPE diagops_expected_document_hit_at_3 gauge\n"
+        f"diagops_expected_document_hit_at_3 {expected_document_hit_at_3}\n"
     )
     return Response(content=body, media_type="text/plain; version=0.0.4")
