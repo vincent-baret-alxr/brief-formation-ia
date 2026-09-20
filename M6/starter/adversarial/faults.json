@@ -1,0 +1,4 @@
+{
+  "_commentaire": "Injections de laboratoire appliquées à tous les cas d'une exécution. Les injections propres à un cas sont déclarées dans campaign.jsonl.",
+  "search_knowledge": {"delay_ms": 0}
+}

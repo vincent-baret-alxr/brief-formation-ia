@@ -1,0 +1,46 @@
+# Politique d'exécution de l'agent borné M6.
+# Toute modification est une décision documentée : elle change le comportement
+# mesuré, donc elle se compare à la référence avant promotion.
+schema_version: 1
+policy_id: m6-baseline-r1
+role: technicien
+
+# Liste blanche : un outil absent d'ici est refusé, même s'il est enregistré.
+allowlist:
+  - search_knowledge
+  - get_equipment
+  - list_events
+  - get_maintenance_history
+  - diagnose_report
+
+budget:
+  max_steps: 4
+  max_tool_calls: 4
+  max_duration_ms: 8000
+  max_repeated_calls: 1
+  max_result_rows: 10
+
+execution:
+  stop_on_tool_error: true
+  require_evidence: true
+  treat_tool_output_as_data: true
+  allow_dynamic_tools: false
+
+trace:
+  # Les arguments sont tracés par clés et empreinte, jamais en clair : un
+  # argument peut transporter une donnée sensible ou une tentative d'exfiltration.
+  record_fields:
+    - step
+    - tool
+    - argument_keys
+    - argument_fingerprint
+    - row_count
+    - source
+    - elapsed_ms
+    - outcome
+  forbidden_fields:
+    - document_text
+    - raw_arguments
+    - private_reasoning
+    - personal_data
+  retention_days: 30

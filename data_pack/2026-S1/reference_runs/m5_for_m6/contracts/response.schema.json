@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DiagOpsGroundedAnswer",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["answer", "citations", "abstained"],
+  "properties": {
+    "answer": {"type": "string", "minLength": 1},
+    "citations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["document_id", "excerpt"],
+        "properties": {
+          "document_id": {"type": "string", "minLength": 1},
+          "excerpt": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "abstained": {"type": "boolean"},
+    "interpretation": {"type": "string"}
+  }
+}

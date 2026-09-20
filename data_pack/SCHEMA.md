@@ -53,6 +53,12 @@ Rapports textuels rediges par des techniciens.
 
 Mise a disposition initiale : `2026-S1/reports/`.
 
+La periode `2027-S1/reports/` est ouverte en M6. Elle est volontairement
+decalee : nouveau canal de saisie `sms_gateway`, notes plus courtes, part plus
+elevee de rapports sans equipement identifie et melange d'equipements deplace
+vers les groupes froids. Cet ecart se mesure ; il ne se corrige pas en
+retirant les lignes genantes.
+
 ### `annotated_diagnostics`
 
 Sous-ensemble annote utilise en M1 pour entrainer et evaluer le modele DiagOps.
@@ -238,11 +244,23 @@ Retours des techniciens apres utilisation de DiagOps.
 |---|---|---|
 | `feedback_id` | string | identifiant du retour |
 | `report_id` | string | rapport ou prediction concerne |
-| `event_id` | string | evenement associe |
+| `event_id` | string ou vide | evenement associe, si connu |
 | `timestamp` | datetime | date du retour |
-| `user_decision` | string | decision humaine |
-| `model_helpfulness` | integer | note de 1 a 5 |
+| `user_decision` | string | decision humaine : `accepted`, `accepted_with_changes`, `rejected`, `escalated` ou `no_decision` |
+| `model_helpfulness` | integer | note de 1 a 5, parfois absente ou hors echelle |
 | `comment` | string | commentaire libre |
+| `submitted_by_id` | string | identifiant pseudonymise du contributeur |
+| `submitted_by_role` | string | role fonctionnel declare du contributeur |
+| `batch` | string | lot de collecte : `b1` ouvre le brief presentiel, `b2` la campagne |
+| `period` | string | periode de collecte |
+
+Le fichier livre est un lot brut. Il contient des doublons, des rapports
+inconnus, des notes hors echelle, des donnees personnelles et des tentatives
+d'instruction adressees au systeme. Aucune colonne ne porte de classe : la
+qualification est le travail du module, et la cle formateur n'est pas
+distribuee.
+
+Mise a disposition : `2027-S1/feedback/`, a partir de M6.
 
 ### `knowledge_documents`
 

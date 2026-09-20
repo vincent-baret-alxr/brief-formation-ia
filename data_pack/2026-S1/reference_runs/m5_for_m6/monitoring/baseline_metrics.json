@@ -1,0 +1,20 @@
+{
+  "gate_status": "passed",
+  "not_frozen": [
+    "latence par requête",
+    "coût par requête",
+    "débit observé"
+  ],
+  "note": "Les valeurs de latence et de coût dépendent du poste : elles sont mesurées en M6, pas figées ici.",
+  "release_id": "diagops-m5-reference-r1",
+  "schema_version": 1,
+  "scrape_interval_seconds": 15,
+  "series": {
+    "diagops_citation_resolvable_rate": 1.0,
+    "diagops_correct_abstention_rate": 1.0,
+    "diagops_dependency_up": 1,
+    "diagops_expected_document_hit_at_3": 1.0,
+    "diagops_index_valid": 1,
+    "diagops_ready": 1
+  }
+}

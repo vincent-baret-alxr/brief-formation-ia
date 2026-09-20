@@ -1,0 +1,6 @@
+{
+  "schema_version": 1,
+  "maximum_actions": 1,
+  "allowed_actions": ["answer_without_tool", "search_knowledge", "abstain"],
+  "external_side_effects_allowed": false
+}

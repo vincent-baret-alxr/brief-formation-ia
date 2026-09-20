@@ -1,0 +1,28 @@
+{
+  "checks": {
+    "citation_resolvable_rate": {
+      "minimum": 1.0,
+      "observed": 1.0,
+      "passed": true
+    },
+    "correct_abstention_rate": {
+      "minimum": 1.0,
+      "observed": 1.0,
+      "passed": true
+    },
+    "document_count": {
+      "minimum": 7,
+      "observed": 7,
+      "passed": true
+    },
+    "expected_document_hit_at_3": {
+      "minimum": 0.8,
+      "observed": 1.0,
+      "passed": true
+    }
+  },
+  "release_id": "diagops-m5-reference-r1",
+  "schema_version": 1,
+  "status": "passed",
+  "test_split_used": false
+}

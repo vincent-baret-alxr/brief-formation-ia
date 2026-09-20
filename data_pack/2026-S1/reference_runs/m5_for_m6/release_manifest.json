@@ -1,0 +1,39 @@
+{
+  "code_version": "m5-deployment-r1",
+  "components": {
+    "gate_report": {
+      "path": "gates/gate_report.json",
+      "sha256": "0c8e123d266474b3623d62470974476cc3f36a0610e975935d094d2f50036f95"
+    },
+    "index_manifest": {
+      "path": "index/index_manifest.json",
+      "sha256": "d250e85b0c6c12ce6c1b60e9fa7cd63d1740e711eba22e76144fabcd886c7021"
+    },
+    "knowledge_manifest": {
+      "path": "../../knowledge/manifest.csv",
+      "sha256": "3b3dfb356eee6543bc8bbc1bf6ca55c39fce94714eef4146756be581e0fe3f5a"
+    },
+    "metrics": {
+      "path": "evaluation/metrics_calibration.json",
+      "sha256": "252c564835126b38b796e4c7f831b5e7381776fca59b52cb477c9b4539f2904b"
+    },
+    "monitoring_baseline": {
+      "path": "monitoring/baseline_metrics.json",
+      "sha256": "9965f2336ac34b7a6380d20f4b22f7806c3455d285c38bb344455f96987cfcef"
+    },
+    "prompt": {
+      "path": "prompts/grounded_answer.txt",
+      "sha256": "5f66e3c2e1d2061e73bcd70db77ae6444a01f6c75f36fd19121cb9bc054f2e1d"
+    }
+  },
+  "corpus_version": "knowledge-3b3dfb356eee",
+  "deployment_scope": "pedagogical_preproduction_only",
+  "evaluation_version": "diagops-rag-calibration-2026-S1-r1",
+  "gate_status": "passed",
+  "index_version": "lexical-dfb8faf0c9b4",
+  "model_version": "diagops-grounded-reference-v1",
+  "prompt_version": "prompt-5f66e3c2e1d2",
+  "release_id": "diagops-m5-reference-r1",
+  "schema_version": 1,
+  "supersedes_release_id": "diagops-m4-reference-r1"
+}

@@ -15,7 +15,7 @@ et conservent leurs productions dans un dépôt privé indépendant (`origin`).
 | M3 | ouvert | présentiel 14 h, online 6 h, starter, données capteurs et référence de continuité |
 | M4 | prêt à distribuer — 40 h | conception et évaluation : modèle simple, RAG minimal, agent borné et réplication |
 | M5 | prêt à distribuer — 40 h | déploiement, CI d'évaluation, monitoring et exercice d'incident |
-| M6 | prévu — 40 h | amélioration continue, outils en lecture seule, feedback et campagne adversariale |
+| M6 | prêt à distribuer — 40 h | amélioration continue, outils en lecture seule, feedback et campagne adversariale |
 | M7 | prévu — 40 h | revue d'architecture, sécurité, souveraineté, réversibilité et migration exercée |
 | M8 | prévu — 40 h | nouveau projet RAG-agentique, audit indépendant, correction et soutenance |
 
@@ -33,6 +33,35 @@ La veille technologique et reglementaire ouverte en M0 est consolidee en M4,
 puis prolongee jusqu'en M8 par un checkpoint inclus dans chaque brief
 presentiel. Elle ne majore pas les quotas de 40 h : ses decisions sont integrees
 aux risques, gates, politiques, ADR et dossiers deja produits dans le module.
+
+## Démarrer M6
+
+Le M6 part de la référence `diagops-m5-reference-r1` et ouvre la période
+`2027-S1`. Avant l'ouverture, le formateur conserve la clé de qualification du
+feedback hors du dépôt apprenant et vérifie les checksums du data pack.
+
+```bash
+python tools/init_module.py M6
+cd work/M6
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.lock
+python -m pytest -q
+python eval/run_agent_eval.py
+python feedback/qualify_feedback.py --batch b1
+```
+
+Le lot de feedback `b2` et les cas adverses supplémentaires n'entrent qu'au
+brief 2. Le starter fournit la machinerie bornée, pas la solution : l'agent
+distribué reste à une seule étape et échoue volontairement sur trois scénarios
+du jeu gelé.
+
+Contrôle avant publication :
+
+```bash
+python tools/check_m6_release.py
+python tools/check_m6_release.py --trainer
+```
 
 ## Organisation du dépôt
 

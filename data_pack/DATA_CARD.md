@@ -213,6 +213,35 @@ Il permet de démarrer M2 sans dépendre de l'achèvement des productions
 personnelles de M1. Il ne contient ni poids, ni checkpoint, ni correction de
 M2.
 
+## Periode 2027-S1 et feedback, ouverts en M6
+
+La revision `diagops-2026-S1-m6-v1` ajoute :
+
+- `2027-S1/reports/reports.jsonl` : 60 rapports d'une periode posterieure,
+  destines a l'analyse de derive ;
+- `2027-S1/feedback/feedback.csv` : 124 retours humains repartis en deux lots.
+
+Le lot de feedback est brut et non qualifie. Il contient, sans les signaler,
+des doublons exacts et approches, des retours rattaches a des rapports
+inexistants, des notes hors echelle, des commentaires portant des donnees
+personnelles et des commentaires redigeant une instruction a destination du
+systeme. La qualification de ce lot est un exercice du module : la cle de
+classement reste dans l'aire formateur.
+
+Un retour n'est pas une verite terrain. Aucun commentaire ne devient une donnee
+d'entrainement sans qualification prealable et decision humaine tracee.
+
+## Reference de continuite M5 vers M6
+
+Le dossier `2026-S1/reference_runs/m5_for_m6/` fournit l'etat commun de la
+stack M5 : manifeste de release passe au gate, index, rejeu de calibration,
+seuils, contrat de series observables, runbook, procedure de restauration,
+decision, risques et passage de relais reglementaire.
+
+Il sert de point de comparaison obligatoire en M6 : baseline sans agent et
+tranche a une seule etape. Il ne contient ni outil, ni agent outille, ni
+reponse au brief M6.
+
 ## Precautions d'interpretation
 
 Les effectifs et correlations sont construits a des fins pedagogiques. Ils ne

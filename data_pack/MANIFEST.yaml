@@ -3,7 +3,7 @@ status: ready_for_distribution
 distribution: learner_pack
 generation_scripts_distributed: false
 synthetic_data: true
-current_release: diagops-2026-S1-m5-v1
+current_release: diagops-2026-S1-m6-v1
 
 periods:
   - id: "2026-S1"
@@ -175,7 +175,9 @@ files:
     entity: "m5_reference_deployment"
     module_min: "M6"
     required: true
-    delivery_status: planned
+    delivery_status: ready_for_distribution
+    quality_review: continuity_release_gate_monitoring_and_checksums_review_v1
+    release_id: diagops-m5-reference-r1
     scope: "Deployable and observable M5 stack used to introduce tools and feedback."
 
   - path: "2026-S1/reference_runs/m6_for_m7/"
@@ -219,11 +221,21 @@ files:
     entity: "reports"
     module_min: "M6"
     required: true
+    expected_rows: 60
+    delivery_status: ready_for_distribution
+    quality_review: drift_scenario_schema_and_channel_coverage_review_v1
+    generation_seed: 20270115
+    scope: "Later period used to observe drift: new channel, shorter notes, shifted equipment mix and more unidentified equipment."
 
   - path: "2027-S1/feedback/feedback.csv"
     entity: "feedback"
     module_min: "M6"
     required: true
+    expected_rows: 124
+    delivery_status: ready_for_distribution
+    quality_review: feedback_qualification_trap_coverage_and_key_separation_v1
+    generation_seed: 20270115
+    scope: "Two feedback batches: b1 opens the presential brief, b2 feeds the adversarial extension. The qualification key stays in the trainer area."
 
   - path: "images/manifest.csv"
     entity: "images"
@@ -252,3 +264,6 @@ notes:
   - "The M4 sensor calibration and test sets are grouped by window_id and disjoint from the M3 control lots."
   - "M4 test labels, RAG test labels and the brief 2 challenge release remain in the trainer-only area until the documented gates."
   - "Planned files and reference runs are contracts for future module opening, not evidence that the assets are already distributed."
+  - "The 2027-S1 period is deliberately shifted from 2026-S1: it supports drift analysis, not a larger training set."
+  - "The 2027-S1 feedback batches contain duplicates, unlinked reports, out-of-scale ratings, personal data and instruction attempts: qualifying them is the exercise."
+  - "No feedback class is distributed: the qualification key remains in the trainer area and is never published."
