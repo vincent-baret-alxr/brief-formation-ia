@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+.pytest_cache/
+artifacts/candidates/*
+artifacts/history/*
+artifacts/runtime/*
+!artifacts/candidates/.gitkeep
+!artifacts/history/.gitkeep
+!artifacts/runtime/.gitkeep

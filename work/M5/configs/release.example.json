@@ -1,0 +1,10 @@
+{
+  "release_id": "learner-candidate-v1",
+  "code_version": "REPLACE_WITH_GIT_COMMIT",
+  "model_version": "diagops-grounded-template-v1",
+  "corpus_version": "diagops-knowledge-2026-S1-r1",
+  "index_version": "REPLACE_AFTER_BUILD",
+  "prompt_version": "REPLACE_WITH_PROMPT_CHECKSUM",
+  "evaluation_version": "diagops-rag-eval-2026-S1-r1",
+  "gate_report": "artifacts/candidates/local/gate_report.json"
+}

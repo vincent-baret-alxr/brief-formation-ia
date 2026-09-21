@@ -1,0 +1,84 @@
+services:
+  indexer:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile
+    command:
+      - python
+      - pipelines/build_index.py
+      - --manifest
+      - /data_pack/2026-S1/knowledge/manifest.csv
+      - --documents
+      - /data_pack/2026-S1/knowledge/documents
+      - --output
+      - /artifacts/candidates/compose/index.json
+    volumes:
+      - ../../../data_pack:/data_pack:ro
+      - diagops_artifacts:/artifacts
+    restart: "no"
+    # Tâche ponctuelle : pas de health check (son succès/échec est déjà le
+    # signal, via `depends_on: condition: service_completed_successfully`
+    # côté api). Limites basses : lit 8 petits fichiers texte et écrit un
+    # JSON, ne doit jamais avoir besoin de plus.
+    deploy:
+      resources:
+        limits:
+          cpus: "0.50"
+          memory: 256M
+
+  api:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile
+    environment:
+      DIAGOPS_REFERENCE_MANIFEST: /data_pack/2026-S1/reference_runs/m4_for_m5/release_manifest.json
+      # DIAGOPS_FAULT_FILE : chemin optionnel vers un fichier JSON simulant
+      # une panne (voir docs/runbook.md). Non défini par défaut : l'API
+      # démarre dans un état sain.
+    ports:
+      - "8000:8000"
+    volumes:
+      - ../../../data_pack:/data_pack:ro
+      - diagops_artifacts:/workspace/module/artifacts
+    depends_on:
+      indexer:
+        condition: service_completed_successfully
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health/ready')"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+      start_period: 5s
+    # Service permanent, exposé au réseau : limites plus généreuses que
+    # l'indexeur, mais bornées pour qu'une fuite ou une boucle ne consomme
+    # pas toute la machine hôte.
+    deploy:
+      resources:
+        limits:
+          cpus: "1.00"
+          memory: 512M
+
+  prometheus:
+    image: prom/prometheus:v3.5.0
+    command: ["--config.file=/etc/prometheus/prometheus.yml"]
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
+    depends_on:
+      api:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q -O- http://127.0.0.1:9090/-/healthy || exit 1"]
+      interval: 15s
+      timeout: 3s
+      retries: 5
+      start_period: 10s
+    deploy:
+      resources:
+        limits:
+          cpus: "0.50"
+          memory: 256M
+
+volumes:
+  diagops_artifacts:
